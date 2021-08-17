@@ -1,7 +1,7 @@
 <?php
 require_once('nav.php');
-// require_once('connection.php');
-// require_once('edit.php');
+require_once('connection.php');
+require_once('edit.php');
 
 ?>
 
@@ -18,24 +18,29 @@ require_once('nav.php');
                     <form action="save.php" method="post">
 
                         <div class="form-group">
-                            <input type="text" class=" form-control" name='students_name' placeholder="Students Name">
+                            <input type="text" class=" form-control" name='students_name' placeholder="Students Name"
+                                   value="<?php echo $e_name; ?>" required>
 
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class=" form-control" name='fathers_name' placeholder="Fathers Name">
+                            <input type="text" class=" form-control" name='fathers_name' placeholder="Fathers Name"
+                                   value="<?php echo $e_fath; ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class=" form-control" name='mothers_name' placeholder="Mothers Name">
+                            <input type="text" class=" form-control" name='mothers_name' placeholder="Mothers Name"
+                                   value="<?php echo $e_moth; ?>">
                         </div>
 
                         <div class="form-group">
-                            <input type="date" class=" form-control" name='dob' placeholder="Date of Birth">
+                            <input type="date" class=" form-control" name='dob' placeholder="Date of Birth"
+                                   value="<?php echo $e_dob; ?>" required>
                         </div>
 
                         <div class="form-group">
-                            <select id="class" name="class" class=" form-control ">
+                            <select id="class" name="class" class=" form-control " value="<?php echo $e_cla; ?>"
+                                    required>
                                 <option value="">--Choose Class --</option>
                                 <option value="1">Class 1</option>
                                 <option value="2">Class 2</option>
@@ -51,11 +56,16 @@ require_once('nav.php');
                             </select>
                         </div>
 
+                        <div class="form-group">
+                            <input type="hidden" class=" form-control" name='update_id' value="<?php echo $edit_id; ?>">
+                        </div>
 
                         <div class="form-group">
-
-                            <button class="btn btn-success" name="submit" type="submit">Submit</button>
-
+                            <?php if ($update == true) { ?>
+                                <button class="btn btn-warning" name="update" type="submit">Update</button>
+                            <?php  } else { ?>
+                                <button class="btn btn-success" name="submit" type="submit">Submit</button>
+                            <?php  }  ?>
                         </div>
 
                     </form>
@@ -66,7 +76,7 @@ require_once('nav.php');
 
 
         <div class="col-lg-8">
-            <?php require_once('student_info_table.php'); // read operation
+            <?php require_once('student_info_table.php');
             ?>
         </div>
     </div>
