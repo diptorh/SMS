@@ -31,7 +31,22 @@ $sql_read = mysqli_query($con, $sql2);
                     </tr>
                 </thead>
 
-                
+                <?php while ($res = mysqli_fetch_assoc($sql_read)) { ?>
+
+                <tr>
+                    <td><?php echo $res['id']; ?> </td>
+                    <td><?php echo $res['name']; ?> </td>
+                    <td><?php echo $res['fathers_name']; ?> </td>
+                    <td><?php echo $res['mothers_name']; ?> </td>
+                    <td><?php echo $res['birth_date']; ?> </td>
+                    <td><?php echo $res['class']; ?> </td>
+                    <td><a class="btn btn-info" type="submit">Edit</a>
+                        <a class="btn btn-danger" type="submit">Delete</a>
+                    </td>
+
+                </tr>
+
+                <?php } ?>
 
             </table>
         </div>
