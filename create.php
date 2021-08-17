@@ -1,7 +1,7 @@
 <?php
-
+require_once('nav.php');
 require_once('connection.php');
-
+require_once('delete.php');
 
 
 if (isset($_POST['submit'])) {
@@ -16,6 +16,5 @@ if (isset($_POST['submit'])) {
 
     $sql = "INSERT INTO student_reg (name, fathers_name, mothers_name,class,birth_date)
     VALUES ('$stu_name', '$fath_name', '$moth_name','$class','$dob')";
-
     $result = mysqli_query($con, $sql);
 }
