@@ -1,5 +1,7 @@
 <?php
 require_once('nav.php');
+// require_once('connection.php');
+// require_once('edit.php');
 
 ?>
 
@@ -49,6 +51,7 @@ require_once('nav.php');
                             </select>
                         </div>
 
+
                         <div class="form-group">
 
                             <button class="btn btn-success" name="submit" type="submit">Submit</button>
@@ -61,6 +64,11 @@ require_once('nav.php');
             </div>
         </div>
 
+
+        <div class="col-lg-8">
+            <?php require_once('student_info_table.php'); // read operation
+            ?>
+        </div>
     </div>
 </div>
 
