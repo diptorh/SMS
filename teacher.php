@@ -44,7 +44,7 @@ require_once('edit_teacher.php');
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class=" form-control" name='teacher_dob' placeholder="Date of Birth"
+                            <input type="date" class=" form-control" name='teacher_dob' placeholder="Date of Birth"
                                    value="<?php echo $t_dob; ?>" required>
                         </div>
 
