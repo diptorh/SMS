@@ -8,18 +8,18 @@ $sql_read = mysqli_query($con, $sql2);
 // print_r($res_array);
 ?>
 
-<div class="card" style="background-color: #F5F5F5;">
-    <div class="card-title py-3  text-black text-center">
-        <h3> Student's Information </h3>
-    </div>
+    <div class="card" style="background-color: #F5F5F5;">
+        <div class="card-title py-3  text-black text-center">
+            <h3> Student's Information </h3>
+        </div>
 
-    <div class="card-body">
+        <div class="card-body">
 
-        <div class=" row justify-content-center text-white">
+            <div class=" row justify-content-center text-white">
 
-            <table class="table">
+                <table class="table">
 
-                <thead>
+                    <thead>
                     <tr>
                         <th> ID </th>
                         <th> Name </th>
@@ -29,29 +29,30 @@ $sql_read = mysqli_query($con, $sql2);
                         <th> Class </th>
                         <th colspan="2"> Action </th>
                     </tr>
-                </thead>
+                    </thead>
 
-                <?php while ($res = mysqli_fetch_assoc($sql_read)) { ?>
+                    <?php while ($res = mysqli_fetch_assoc($sql_read)) { ?>
 
-                <tr>
-                    <td><?php echo $res['id']; ?> </td>
-                    <td><?php echo $res['name']; ?> </td>
-                    <td><?php echo $res['fathers_name']; ?> </td>
-                    <td><?php echo $res['mothers_name']; ?> </td>
-                    <td><?php echo $res['birth_date']; ?> </td>
-                    <td><?php echo $res['class']; ?> </td>
-                    <td><a class="btn btn-info" type="submit">Edit</a>
-                        <a class="btn btn-danger" type="submit">Delete</a>
-                    </td>
+                        <tr>
+                            <td><?php echo $res['id']; ?> </td>
+                            <td><?php echo $res['name']; ?> </td>
+                            <td><?php echo $res['fathers_name']; ?> </td>
+                            <td><?php echo $res['mothers_name']; ?> </td>
+                            <td><?php echo $res['birth_date']; ?> </td>
+                            <td><?php echo $res['class']; ?> </td>
+                            <td><a class="btn btn-info" type="submit" href="index.php?Edit=<?php echo $res['id']; ?>">Edit</a>
+                                <a class="btn btn-danger" type="submit"
+                                   href="save.php?Delete= <?php echo $res['id']; ?> ">Delete</a>
+                            </td>
 
-                </tr>
+                        </tr>
 
-                <?php } ?>
+                    <?php } ?>
 
-            </table>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
 
 <?

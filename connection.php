@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'dghs');
+$con = mysqli_connect('localhost', 'root', '', 'sms');
 
 if (!$con) {
     echo " DB not connected.";
