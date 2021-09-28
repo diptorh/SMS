@@ -1,12 +1,12 @@
 <?php
-require_once('nav.php');
+//require_once('nav.php');
 require_once('connection.php');
-require_once('create.php');
-require_once('delete.php');
+//require_once('create.php');
+//require_once('delete.php');
 
 
-if (isset($_POST['update'])) {
-
+//if (isset($_POST['update'])) {
+$update=false;
     $update_id = $_POST['update_id'];
     //echo $update_id;
 
@@ -24,6 +24,25 @@ if (isset($_POST['update'])) {
 
 
 
-    //echo $edit_result['name'];
-    //print_r($edit_result);
+
+$sql2 = "select * from student_reg  order by id desc ";
+$sql_read = mysqli_query($con, $sql2);
+
+while ($res = mysqli_fetch_assoc($sql_read)) {
+
+    echo "<tr>
+                            <td>".$res['id']."</td>
+                            <td>".$res['name']."</td>
+                            <td>".$res['fathers_name']."</td>
+                            <td>".$res['mothers_name']." </td>
+                            <td>".$res['birth_date']."</td>
+                            <td>".$res['class']."</td>
+        <td><a class='btn btn-info' type='submit'
+                href='registration.php?Edit=" . $res['id'] . "'>Edit</a>
+            <a class='btn btn-danger' type='submit'
+                href='delete.php?Delete=" . $res['id'] . "'>Delete</a>
+        </td>
+
+    </tr>";
 }
+$update=false;
