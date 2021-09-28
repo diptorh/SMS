@@ -2,7 +2,7 @@
 
 require_once('connection.php');
 
-$sql2 = "select * from student_reg";
+$sql2 = "select * from student_reg  order by id desc ";
 $sql_read = mysqli_query($con, $sql2);
 //$res_array = mysqli_fetch_assoc($sql_read);
 // print_r($res_array);
@@ -25,12 +25,14 @@ $sql_read = mysqli_query($con, $sql2);
                         <th> Name </th>
                         <th> Father </th>
                         <th> Mother </th>
-                        <th> Date of Birth </th>
+                        <th> Birth Date </th>
                         <th> Class </th>
-                        <th colspan="2"> Action </th>
+                        <?php if ($update != true) { ?>
+                            <th colspan="2" style="text-align: center;"> Action </th>
+                        <?php } ?>
                     </tr>
                     </thead>
-
+                <tbody>
                     <?php while ($res = mysqli_fetch_assoc($sql_read)) { ?>
 
                         <tr>
@@ -40,15 +42,18 @@ $sql_read = mysqli_query($con, $sql2);
                             <td><?php echo $res['mothers_name']; ?> </td>
                             <td><?php echo $res['birth_date']; ?> </td>
                             <td><?php echo $res['class']; ?> </td>
-                            <td><a class="btn btn-info" type="submit" href="index.php?Edit=<?php echo $res['id']; ?>">Edit</a>
+                            <td>
+                                <?php if ($update != true) { ?>
+                                <a class="btn btn-info" type="submit"
+                                   href="registration.php?Edit=<?php echo $res['id']; ?>">Edit</a>
                                 <a class="btn btn-danger" type="submit"
-                                   href="save.php?Delete= <?php echo $res['id']; ?> ">Delete</a>
+                                   href="delete.php?Delete= <?php echo $res['id']; ?> ">Delete</a>
                             </td>
-
+                            <?php } $update = false; ?>
                         </tr>
 
                     <?php } ?>
-
+                </tbody>
                 </table>
             </div>
         </div>
