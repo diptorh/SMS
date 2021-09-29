@@ -72,7 +72,7 @@ AND att.attendance_date ='$attendance_date' ";
                       document.getElementById('countdown').textContent = seconds;
                       if (seconds <= 0) 
                       {clearInterval(countdown);
-                      window.location.href = 'http://localhost/project_dghs_radio_2/project_dghs_radio/reports.php';
+                      window.location.href = 'http://localhost/project_dghs_radio_3/project_dghs_radio_4/reports.php';
                       }
                       }, 1000);
   
